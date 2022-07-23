@@ -8,7 +8,6 @@
 <script>
 // @ is an alias to /src
 import EvenCard from '@/components/EventCard.vue'
-//import axios from 'axios'
 
 export default {
   name: 'EventList',
