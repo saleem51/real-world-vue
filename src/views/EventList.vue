@@ -7,7 +7,8 @@
 
 <script>
 // @ is an alias to /src
-import EvenCard from '@/components/EventCard.vue'
+import EvenCard from '@/components/EventCard.vue';
+import EventService from '@/services/EventService';
 
 export default {
   name: 'EventList',
@@ -18,6 +19,11 @@ export default {
     return {
       events: null
     }
+  },
+  created() {
+    EventService.getEvents()
+    .then(response => this.events = response.data)
+    .catch(error => console.log(error))
   }
 }
 </script>
