@@ -2,6 +2,11 @@
   <h1>Events For Good</h1>
   <div class="events">
     <EvenCard v-for="event in events" :key="event.id" :event="event"/>
+
+    <router-link
+    :to="{name: 'EventList', query: { page: page -1 }}"
+    rel="prev"
+    v-if="page != 1">Prev Page</router-link>
   </div>
 </template>
 
@@ -12,6 +17,7 @@ import EventService from '@/services/EventService';
 
 export default {
   name: 'EventList',
+  props: ['page'],
   components: {
     EvenCard
   },
